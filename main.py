@@ -1,9 +1,7 @@
 from plyer import notification
 import time
-import requests
 from requests import Request, Session
 import json
-import pprint
 
 url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
 parameters = {
@@ -36,10 +34,14 @@ def notifyMe(title, message):
         timeout = 5,
     )
 
-def main():
-    act = get_price()
-    notifyMe("ADA", act)
-
 if __name__ == '__main__':
-        main()
-
+    while True:
+        act = get_price()
+        notifyMe("ADA", act)
+        sleep = 0
+        min = 0
+        while sleep != 900:
+            time.sleep(sleep)
+            sleep += 60
+            min += 1
+            print(f"{min} minutes have passed.")
