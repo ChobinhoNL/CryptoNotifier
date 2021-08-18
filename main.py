@@ -41,7 +41,7 @@ if __name__ == '__main__':
         sleep = 0
         min = 0
         while sleep != 900:
-            time.sleep(sleep)
+            time.sleep(60)
             sleep += 60
             min += 1
             print(f"{min} minutes have passed.")
